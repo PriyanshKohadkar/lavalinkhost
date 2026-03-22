@@ -9,12 +9,18 @@ lavalink:
   server:
     password: "yourpasswordhere"
     sources:
-      youtube: false      # disabled — handled by plugin above
+      youtube: false
       soundcloud: true
       http: true
     bufferDurationMs: 400
     youtubeSearchEnabled: true
     soundcloudSearchEnabled: true
+    # ↓ THIS is the fix — disables JDA-NAS which causes the libgcc error
+    playerUpdateInterval: 5
+    useSeekGhosting: true
+
+koe:
+  highPacketPriority: false    # ← disables JDA-NAS entirely
 
 plugins:
   youtube:
